@@ -27,22 +27,22 @@ int main()
 				int i;
 				i = SearchStu(array, na);
 				if (i == N)
-					cout << "²éÎÞ´ËÈË£¡\n";
+					cout << "æŸ¥æ— æ­¤äººï¼\n";
 				else
 					array[i].Display();
 				break;
 			case 3:OutputStu(array); break;
 			case 4:if (InsertStu(array))
-				cout << "³É¹¦²åÈëÒ»Ìõ¼ÇÂ¼\n";
+				cout << "æˆåŠŸæ’å…¥ä¸€æ¡è®°å½•\n";
 				   else
-				cout << "²åÈëÊ§°Ü£¡\n"; break;
+				cout << "æ’å…¥å¤±è´¥ï¼\n"; break;
 			case 5:
 				cout << "Input the name deleted:" << endl;
 				cin >> na;
 				if (DeleteStu(array, na))
-					cout << "³É¹¦É¾³ýÒ»Ìõ¼ÇÂ¼\n";
+					cout << "æˆåŠŸåˆ é™¤ä¸€æ¡è®°å½•\n";
 				else
-					cout << "É¾³ýÊ§°Ü£¡\n";
+					cout << "åˆ é™¤å¤±è´¥ï¼\n";
 				break;
 			default:break;
 			}
@@ -51,16 +51,16 @@ int main()
 }
 void menu()
 {
-	cout << "**********1.Â¼ÈëÐÅÏ¢***********" << endl;
-	cout << "**********2.²éÑ¯ÐÅÏ¢***********" << endl;
-	cout << "**********3.ä¯ÀÀÐÅÏ¢***********" << endl;
-	cout << "**********4.²åÈëÐÅÏ¢***********" << endl;
-	cout << "**********5.É¾³ýÐÅÏ¢***********" << endl;
-	cout << "**********0.ÍË    ³ö***********" << endl;
+	cout << "**********1.å½•å…¥ä¿¡æ¯***********" << endl;
+	cout << "**********2.æŸ¥è¯¢ä¿¡æ¯***********" << endl;
+	cout << "**********3.æµè§ˆä¿¡æ¯***********" << endl;
+	cout << "**********4.æ’å…¥ä¿¡æ¯***********" << endl;
+	cout << "**********5.åˆ é™¤ä¿¡æ¯***********" << endl;
+	cout << "**********0.é€€    å‡º***********" << endl;
 }
-void OutputStu(Student *array)
+void OutputStu(const Student *array)
 {
-	cout << "Ñ§Éú×ÜÈËÊý=" << Student::GetCount() << endl;
+	cout << "å­¦ç”Ÿæ€»äººæ•°=" << Student::GetCount() << endl;
 	for (int i = 0; i < N; i++)
 		if (array[i].GetAge())
 			array[i].Display();
@@ -84,10 +84,10 @@ void InputStu(Student *array)
 	do
 	{
 		if (Student::GetCount() == N)
-			cout << "ÈËÊýÒÑÂú£¬ÎÞ·¨¼ÌÐøÂ¼Èë£¡" << endl;
+			cout << "äººæ•°å·²æ»¡ï¼Œæ— æ³•ç»§ç»­å½•å…¥ï¼" << endl;
 		if (!array[i].GetAge())
 			array[i++].Input();
-		cout << "¼ÌÐøÊäÈëÂð£¿£¨Y or N£©" << endl;
+		cout << "ç»§ç»­è¾“å…¥å—ï¼Ÿï¼ˆY or Nï¼‰" << endl;
 		cin >> ch;
 	} while (ch == 'Y');
 }
@@ -95,7 +95,7 @@ bool InsertStu(Student *array)
 {
 	if (Student::GetCount() == N)
 	{
-		cout << "ÈËÊýÒÑÂú£¬ÎÞ·¨²åÈë¼ÇÂ¼£¡" << endl;
+		cout << "äººæ•°å·²æ»¡ï¼Œæ— æ³•æ’å…¥è®°å½•ï¼" << endl;
 		return false;
 	}
 	for (int i = 0; array[i].GetAge(); i++)
@@ -106,13 +106,13 @@ bool DeleteStu(Student *array, char *na)
 {
 	if (Student::GetCount() == 0)
 	{
-		cout << "Ã»ÓÐ¼ÇÂ¼£¬ÎÞ·¨É¾³ý£¡" << endl;
+		cout << "æ²¡æœ‰è®°å½•ï¼Œæ— æ³•åˆ é™¤ï¼" << endl;
 		return false;
 	}
 	int i = SearchStu(array, na);
 	if (i == N)
 	{
-		cout << "²éÎÞ´ËÈË£¬ÎÞ·¨É¾³ý£¡\n";
+		cout << "æŸ¥æ— æ­¤äººï¼Œæ— æ³•åˆ é™¤ï¼\n";
 		return false;
 	}
 	array[i].Delete();
